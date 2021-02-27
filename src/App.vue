@@ -18,7 +18,6 @@
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
-
           <v-list-item-content>
             <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item-content>
@@ -37,8 +36,6 @@
 
 <script>
 export default {
-  name: "App",
-
   data: () => ({
     items: [
       { title: "Home", icon: "mdi-home", to: "/" },

@@ -10,7 +10,6 @@ export default {
   },
   mounted() {
     let isDark = localStorage.getItem("_dark_mode");
-    console.log(isDark);
     if (isDark === null) {
       if (this.systemInDark()) {
         this.setDark(true);
@@ -18,7 +17,6 @@ export default {
         this.setDark(false);
       }
     } else {
-      console.log(isDark);
       this.setDark(isDark === "true" ? true : false);
     }
   },

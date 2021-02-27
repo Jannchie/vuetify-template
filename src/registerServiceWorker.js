@@ -18,6 +18,15 @@ if (process.env.NODE_ENV === "production") {
     },
     updatefound() {
       console.log("New content is downloading.");
+      register(`${process.env.BASE_URL}service-worker.js`, {
+        updated(registration) {
+          if (window.confirm("A new version is available, update now?")) {
+            const worker = registration.waiting;
+            worker.postMessage({ action: "SKIP_WAITING" });
+            // refresh the page or trigger a refresh programatically!
+          }
+        },
+      });
     },
     updated() {
       console.log("New content is available; please refresh.");
