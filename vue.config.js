@@ -13,6 +13,7 @@ module.exports = {
       "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js",
     workboxOptions: {
       swSrc: "src/service-worker.js",
+      exclude: [/\.map$/, /_redirects/],
     },
   },
 };

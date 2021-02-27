@@ -12,18 +12,15 @@ workbox.core.setCacheNameDetails({
 });
 
 // have our sw update and control a web page as soon as possible.
-workbox.core.skipWaiting(); // 强制等待中的 Service Worker 被激活
-workbox.core.clientsClaim(); // Service Worker 被激活后使其立即获得页面控制权
+workbox.core.skipWaiting();
+workbox.core.clientsClaim();
 
 // vue-cli3.0 supports pwa with the help of workbox-webpack-plugin, we need to get the precacheing list through this sentence.
 workbox.precaching.precacheAndRoute(self.__precacheManifest || []);
 
 workbox.routing.registerRoute(
-  // Cache CSS files
   /.*\.html/,
-  // 使用缓存，但尽快在后台更新
   new workbox.strategies.StaleWhileRevalidate({
-    // 使用自定义缓存名称
     cacheName: "html-cache",
   })
 );
@@ -31,18 +28,13 @@ workbox.routing.registerRoute(
 workbox.routing.registerRoute(
   // Cache CSS files
   /.*\.css/,
-  // 使用缓存，但尽快在后台更新
   new workbox.strategies.StaleWhileRevalidate({
-    // 使用自定义缓存名称
     cacheName: "css-cache",
   })
 );
 workbox.routing.registerRoute(
-  // 缓存JS文件
   /.*\.js/,
-  // 使用缓存，但尽快在后台更新
   new workbox.strategies.StaleWhileRevalidate({
-    // 使用自定义缓存名称
     cacheName: "js-cache",
   })
 );
