@@ -1,10 +1,13 @@
 <template>
   <v-btn small icon @click="switchDark">
-    <v-icon> mdi-theme-light-dark </v-icon>
+    <v-icon> {{ icon }}</v-icon>
   </v-btn>
 </template>
 <script>
 export default {
+  data() {
+    return { icon: "mdi-weather-night" };
+  },
   mounted() {
     let isDark = localStorage.getItem("_dark_mode");
     console.log(isDark);
@@ -26,6 +29,7 @@ export default {
     setDark(bool) {
       this.$vuetify.theme.dark = bool;
       localStorage.setItem("_dark_mode", bool);
+      this.icon = bool ? "mdi-weather-sunny" : "mdi-weather-night";
     },
     systemInDark() {
       return window.matchMedia
