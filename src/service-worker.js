@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-const pkg = require("../package.json");
 if (workbox) {
   console.log(`Workbox is loaded!`);
 } else {
@@ -9,7 +8,7 @@ if (workbox) {
 // 设置缓存前缀和后缀，请根据实际项目名修改
 workbox.core.setCacheNameDetails({
   prefix: "vuetify-template",
-  suffix: pkg.version,
+  suffix: "0.1.3",
 });
 
 // have our sw update and control a web page as soon as possible.
