@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 if (workbox) {
   console.log(`Workbox is loaded!`);
 } else {

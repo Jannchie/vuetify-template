@@ -1,5 +1,9 @@
 # vuetify-template
 
+This is an out-of-the-box template that uses Vue.js 2.0 and Vuetify.js. Devoting to help users start projects faster.
+
+[Online Demo Here](https://vuetify-template.netlify.app/)
+
 ## Project setup
 
 ``` bash
