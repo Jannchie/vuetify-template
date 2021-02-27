@@ -6,23 +6,39 @@
       <DarkBtn />
     </v-app-bar>
     <v-navigation-drawer app clipped>
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title class="title"> {{ app.name }} </v-list-item-title>
-          <v-list-item-subtitle> {{ app.subtitle }} </v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
-      <v-divider></v-divider>
-      <v-list dense nav>
-        <v-list-item v-for="item in items" :key="item.title" :to="item.to" link>
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
+      <div class="d-flex flex-column" style="min-height: 100%">
+        <div style="flex: 1">
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title class="title">
+                {{ app.name }}
+              </v-list-item-title>
+              <v-list-item-subtitle> {{ app.subtitle }} </v-list-item-subtitle>
+            </v-list-item-content>
+          </v-list-item>
+          <v-divider></v-divider>
+          <v-list dense nav>
+            <v-list-item
+              v-for="item in items"
+              :key="item.title"
+              :to="item.to"
+              link
+            >
+              <v-list-item-icon>
+                <v-icon>{{ item.icon }}</v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title>{{ item.title }}</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+        </div>
+        <div>
+          <v-footer>
+            <span>&copy; {{ new Date().getFullYear() }} Jannchie </span>
+          </v-footer>
+        </div>
+      </div>
     </v-navigation-drawer>
     <v-main>
       <v-container>
