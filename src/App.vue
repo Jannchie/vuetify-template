@@ -1,32 +1,50 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+  <v-app>
+    <v-app-bar dense flat app outlined clipped-left>
+      <v-app-bar-title>{{ title }}</v-app-bar-title>
+    </v-app-bar>
+    <v-navigation-drawer app clipped>
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title class="title"> {{ app.name }} </v-list-item-title>
+          <v-list-item-subtitle> {{ app.subtitle }} </v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
+      <v-divider></v-divider>
+      <v-list dense nav>
+        <v-list-item v-for="item in items" :key="item.title" :to="item.to" link>
+          <v-list-item-icon>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+    <v-main>
+      <v-container>
+        <v-scroll-y-reverse-transition mode="out-in">
+          <router-view></router-view>
+        </v-scroll-y-reverse-transition>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+export default {
+  name: "App",
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+  data: () => ({
+    items: [
+      { title: "Home", icon: "mdi-home", to: "/" },
+      { title: "About", icon: "mdi-information", to: "/about" }
+    ],
+    app: { name: "application", subtitle: "Subtitle" },
+    title: "Vuetify Template",
+    right: null
+  })
+};
+</script>
