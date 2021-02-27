@@ -2,6 +2,8 @@
   <v-app>
     <v-app-bar dense flat app outlined clipped-left>
       <v-app-bar-title>{{ title }}</v-app-bar-title>
+      <v-spacer></v-spacer>
+      <DarkBtn />
     </v-app-bar>
     <v-navigation-drawer app clipped>
       <v-list-item>
@@ -40,11 +42,11 @@ export default {
   data: () => ({
     items: [
       { title: "Home", icon: "mdi-home", to: "/" },
-      { title: "About", icon: "mdi-information", to: "/about" }
+      { title: "About", icon: "mdi-information", to: "/about" },
     ],
     app: { name: "application", subtitle: "Subtitle" },
     title: "Vuetify Template",
-    right: null
-  })
+    right: null,
+  }),
 };
 </script>

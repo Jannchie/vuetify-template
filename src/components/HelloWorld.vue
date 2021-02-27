@@ -1,6 +1,7 @@
 <template>
-  <v-card outlined>
+  <v-card dense outlined>
     <v-card-title>{{ title }}</v-card-title>
+    <v-divider></v-divider>
     <v-card-text>{{ msg }}</v-card-text>
   </v-card>
 </template>
