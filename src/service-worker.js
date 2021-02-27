@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+const pkg = require("../package.json");
 if (workbox) {
   console.log(`Workbox is loaded!`);
 } else {

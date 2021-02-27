@@ -8,7 +8,7 @@ module.exports = {
     themeColor: "#07B",
     appleMobileWebAppCapable: "yes",
     appleMobileWebAppStatusBarStyle: "black",
-    workboxPluginMode: "InjectManifest",
+    workboxPluginMode: "GenerateSW",
     importScripts:
       "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js",
     workboxOptions: {
